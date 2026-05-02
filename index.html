@@ -40,7 +40,7 @@
     </header>
 
     <main id="top">
-      <section class="hero section-pad">
+      <section class="hero">
         <div class="hero-content">
           <p class="eyebrow">WhatsApp automation for auto businesses</p>
           <h1>AI-Powered WhatsApp Customer Messaging for Automotive Businesses in Jamaica</h1>
@@ -60,22 +60,49 @@
           </div>
         </div>
 
-        <figure class="hero-image-section" aria-label="Header image showing the WhatsApp automation experience">
-          <figcaption class="eyebrow">Live conversation preview</figcaption>
-          <img
-            src="./assets/cruuz-whatsapp-automation.png"
-            width="1400"
-            height="1050"
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-            alt="WhatsApp-style conversation showing Cruuz Management AI qualifying an automotive service request"
-          />
-          <p class="image-fallback">
-            WhatsApp conversation preview: Cruuz Management AI captures vehicle, location, service request,
-            and preferred time before sending the lead to your team.
-          </p>
-        </figure>
+        <div class="hero-chat-preview" aria-label="Live WhatsApp conversation preview">
+          <div class="chat-device">
+            <div class="chat-header">
+              <span class="chat-avatar">CM</span>
+              <div>
+                <strong>Cruuz Management AI</strong>
+                <span>online - replying instantly</span>
+              </div>
+            </div>
+
+            <div class="chat-body">
+              <div class="message message-customer">
+                <span class="message-author">Customer</span>
+                <p>Hi, can someone check my brakes today? 2015 Toyota Axio in Kingston.</p>
+                <time>10:14 AM</time>
+              </div>
+
+              <div class="message message-ai">
+                <span class="message-author">Cruuz Management AI</span>
+                <p>Hi! Yes, we can help. I captured your vehicle and location.</p>
+                <time>10:14 AM sent</time>
+              </div>
+
+              <div class="message message-customer">
+                <span class="message-author">Customer</span>
+                <p>The brakes make a grinding sound when I stop. After 3 PM works best.</p>
+                <time>10:15 AM</time>
+              </div>
+
+              <div class="message message-ai">
+                <span class="message-author">Cruuz Management AI</span>
+                <p>Got it. I sent this to the team so they can confirm your inspection.</p>
+                <time>10:15 AM sent</time>
+              </div>
+
+              <div class="chat-capture">Lead captured automatically</div>
+            </div>
+          </div>
+
+          <div class="lead-summary">
+            Lead ready: Toyota Axio - brake inspection - Kingston - after 3 PM
+          </div>
+        </div>
       </section>
 
       <section class="intro-band">
