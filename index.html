@@ -1,840 +1,337 @@
-:root {
-  --ink: #0f1720;
-  --muted: #5f6b75;
-  --paper: #f8faf7;
-  --surface: #ffffff;
-  --line: #dce3df;
-  --green: #19b464;
-  --green-dark: #0b6b42;
-  --mint: #dff7e8;
-  --blue: #1d4ed8;
-  --amber: #f5b849;
-  --shadow: 0 24px 70px rgba(15, 23, 32, 0.12);
-  --radius: 8px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  line-height: 1.5;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 10px clamp(18px, 4vw, 64px);
-  background: rgba(248, 250, 247, 0.9);
-  border-bottom: 1px solid rgba(220, 227, 223, 0.75);
-  backdrop-filter: blur(18px);
-}
-
-.site-header.has-shadow {
-  box-shadow: 0 12px 32px rgba(15, 23, 32, 0.08);
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.brand-logo-frame {
-  display: grid;
-  width: 58px;
-  height: 42px;
-  place-items: center;
-  overflow: hidden;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 32, 0.1);
-  border-radius: var(--radius);
-  box-shadow: 0 8px 18px rgba(15, 23, 32, 0.08);
-}
-
-.brand-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 3px;
-}
-
-.site-nav {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  color: #23303b;
-  font-size: 0.94rem;
-  font-weight: 700;
-}
-
-.site-nav a {
-  text-decoration: none;
-}
-
-.site-nav a:hover {
-  color: var(--green-dark);
-}
-
-.nav-cta {
-  padding: 10px 16px;
-  color: #ffffff;
-  background: var(--ink);
-  border-radius: var(--radius);
-}
-
-.nav-cta:hover {
-  color: #ffffff !important;
-  background: var(--green-dark);
-}
-
-.nav-toggle {
-  display: none;
-  width: 42px;
-  height: 42px;
-  padding: 9px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-
-.nav-toggle span:not(.sr-only) {
-  display: block;
-  height: 2px;
-  margin: 5px 0;
-  background: var(--ink);
-}
-
-.section-pad {
-  padding: clamp(64px, 10vw, 120px) clamp(18px, 5vw, 72px);
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: minmax(360px, 0.78fr) minmax(420px, 1.22fr);
-  gap: clamp(28px, 4vw, 56px);
-  align-items: start;
-  padding: 30px clamp(18px, 5vw, 72px) 48px;
-  min-height: auto;
-}
-
-.hero-content {
-  max-width: 660px;
-  padding-top: 18px;
-}
-
-.eyebrow {
-  margin: 0 0 12px;
-  color: var(--green-dark);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-h1,
-h2,
-h3,
-p {
-  overflow-wrap: anywhere;
-}
-
-h1 {
-  max-width: 700px;
-  margin: 0;
-  font-size: 4.15rem;
-  line-height: 0.98;
-  letter-spacing: 0;
-}
-
-h1 span,
-h1 small {
-  display: block;
-}
-
-h1 small {
-  max-width: 620px;
-  margin-top: 8px;
-  color: #25313c;
-  font-size: 2rem;
-  font-weight: 800;
-  line-height: 1.12;
-}
-
-h2 {
-  margin: 0;
-  font-size: 3.2rem;
-  line-height: 1.02;
-  letter-spacing: 0;
-}
-
-h3 {
-  margin: 0;
-  font-size: 1.1rem;
-  line-height: 1.22;
-}
-
-.hero-copy {
-  max-width: 600px;
-  margin: 18px 0 0;
-  color: #38444f;
-  font-size: 1.08rem;
-}
-
-.slogan {
-  max-width: 620px;
-  margin: 14px 0 0;
-  color: var(--green-dark);
-  font-size: 1.02rem;
-  font-weight: 800;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 22px;
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 13px 18px;
-  border: 1px solid transparent;
-  border-radius: var(--radius);
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.button-primary {
-  color: #ffffff;
-  background: var(--green-dark);
-  box-shadow: 0 14px 28px rgba(11, 107, 66, 0.2);
-}
-
-.button-primary:hover {
-  background: #084d31;
-}
-
-.button-secondary {
-  color: var(--ink);
-  background: var(--surface);
-  border-color: var(--line);
-}
-
-.button-secondary:hover {
-  border-color: var(--green);
-}
-
-.trust-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.trust-strip span,
-.audience-list span,
-.pricing-notes span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 34px;
-  padding: 7px 12px;
-  color: #1d3028;
-  background: var(--mint);
-  border: 1px solid #c2ecd2;
-  border-radius: 999px;
-  font-size: 0.88rem;
-  font-weight: 700;
-}
-
-.hero-media {
-  position: relative;
-  align-self: start;
-  margin: 0;
-  padding: 8px;
-  background: linear-gradient(180deg, #ffffff 0%, #edf7f0 100%);
-  border: 1px solid rgba(15, 23, 32, 0.1);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.hero-media img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: min(66vh, 660px);
-  object-fit: contain;
-  border-radius: calc(var(--radius) - 2px);
-}
-
-.hero-media figcaption {
-  display: none;
-}
-
-.hero-media.is-missing {
-  min-height: 360px;
-}
-
-.hero-media.is-missing img {
-  display: none;
-}
-
-.hero-media.is-missing figcaption {
-  display: grid;
-  min-height: 320px;
-  place-items: center;
-  color: var(--muted);
-  font-weight: 800;
-  text-align: center;
-}
-
-.intro-band {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  margin: 0 clamp(18px, 5vw, 72px);
-  overflow: hidden;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-
-.intro-band div {
-  padding: clamp(20px, 4vw, 34px);
-  background: var(--surface);
-}
-
-.stat {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--green-dark);
-  font-size: 2.8rem;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.intro-band p,
-.section-heading p,
-.feature-card p,
-.timeline p,
-.why-card p,
-.outcome-grid p,
-.price-card li,
-.contact-section p,
-.legal-section p {
-  color: var(--muted);
-}
-
-.content-section,
-.pricing-section {
-  background: var(--paper);
-}
-
-.section-heading {
-  max-width: 790px;
-  margin-bottom: clamp(28px, 5vw, 48px);
-}
-
-.section-heading p {
-  margin: 16px 0 0;
-  font-size: 1.04rem;
-}
-
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.feature-card,
-.price-card,
-.contact-card,
-.why-card,
-.outcome-grid div {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-
-.feature-card {
-  min-height: 230px;
-  padding: 24px;
-}
-
-.feature-card p {
-  margin: 12px 0 0;
-}
-
-.icon {
-  display: inline-grid;
-  width: 42px;
-  height: 42px;
-  margin-bottom: 28px;
-  place-items: center;
-  color: #ffffff;
-  background: var(--ink);
-  border-radius: var(--radius);
-  font-size: 0.8rem;
-  font-weight: 800;
-}
-
-.split-section {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.75fr) minmax(320px, 1fr);
-  gap: clamp(32px, 6vw, 72px);
-  background: #102019;
-  color: #ffffff;
-}
-
-.split-section .eyebrow {
-  color: #8df0ba;
-}
-
-.timeline {
-  display: grid;
-  gap: 14px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.timeline li {
-  display: grid;
-  grid-template-columns: 48px minmax(0, 1fr);
-  gap: 16px;
-  padding: 18px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius);
-}
-
-.timeline span {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  color: var(--ink);
-  background: #8df0ba;
-  border-radius: 50%;
-  font-weight: 800;
-}
-
-.timeline p {
-  margin: 8px 0 0;
-  color: #c8d9d0;
-}
-
-.audience-section {
-  background: var(--surface);
-}
-
-.audience-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.why-section {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.95fr) minmax(300px, 1.05fr);
-  gap: 18px;
-}
-
-.why-card {
-  padding: clamp(26px, 5vw, 46px);
-}
-
-.why-card p {
-  margin: 18px 0 0;
-  font-size: 1.08rem;
-}
-
-.outcome-grid {
-  display: grid;
-  gap: 14px;
-}
-
-.outcome-grid div {
-  padding: 22px;
-}
-
-.outcome-grid strong {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 1.05rem;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-}
-
-.price-card {
-  padding: clamp(24px, 5vw, 42px);
-}
-
-.price-card.featured {
-  color: #ffffff;
-  background: var(--ink);
-  border-color: var(--ink);
-}
-
-.price-label {
-  margin: 0 0 16px;
-  color: var(--green-dark);
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.featured .price-label {
-  color: #8df0ba;
-}
-
-.price-card h3 {
-  font-size: 3.9rem;
-  line-height: 0.95;
-}
-
-.quote-detail {
-  margin: 10px 0 26px;
-  color: var(--muted);
-  font-weight: 800;
-}
-
-.featured .quote-detail,
-.featured li {
-  color: #d7e6df;
-}
-
-.price-card ul {
-  display: grid;
-  gap: 12px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.price-card li {
-  position: relative;
-  padding-left: 24px;
-}
-
-.price-card li::before {
-  position: absolute;
-  left: 0;
-  content: "";
-  width: 8px;
-  height: 8px;
-  margin-top: 8px;
-  background: var(--green);
-  border-radius: 50%;
-  color: var(--green);
-  font-weight: 800;
-}
-
-.pricing-notes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.apply-section {
-  background: #eaf4ee;
-}
-
-.form-shell {
-  overflow: hidden;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.form-shell iframe {
-  display: block;
-  width: 100%;
-  height: min(78vh, 820px);
-  min-height: 620px;
-  border: 0;
-}
-
-.form-fallback {
-  margin-top: 18px;
-}
-
-.contact-section {
-  display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(280px, 0.8fr);
-  gap: 24px;
-  align-items: stretch;
-  background: var(--surface);
-}
-
-.contact-card {
-  padding: 28px;
-}
-
-.contact-card span {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--muted);
-  font-size: 0.84rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.contact-card a {
-  color: var(--green-dark);
-  font-size: 1.6rem;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.contact-card a:hover {
-  text-decoration: underline;
-}
-
-.legal-section {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  margin: 0 clamp(18px, 5vw, 72px) 64px;
-  overflow: hidden;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-
-.legal-section div {
-  padding: clamp(22px, 4vw, 34px);
-  background: var(--surface);
-}
-
-.legal-section h2 {
-  font-size: 1.2rem;
-}
-
-.site-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 24px clamp(18px, 5vw, 72px);
-  color: #dce8e1;
-  background: var(--ink);
-}
-
-.site-footer p {
-  margin: 0;
-}
-
-.site-footer a {
-  color: #8df0ba;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-@media (max-width: 920px) {
-  .nav-toggle {
-    display: inline-block;
-  }
-
-  .site-nav {
-    position: absolute;
-    top: calc(100% + 1px);
-    right: 18px;
-    left: 18px;
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 10px;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-  }
-
-  .site-nav.is-open {
-    display: flex;
-  }
-
-  .site-nav a {
-    padding: 13px 12px;
-  }
-
-  .nav-cta {
-    margin-top: 6px;
-    text-align: center;
-  }
-
-  .hero,
-  .split-section,
-  .why-section,
-  .contact-section {
-    grid-template-columns: 1fr;
-  }
-
-  .hero {
-    min-height: auto;
-  }
-
-  .hero-media {
-    max-width: 680px;
-    width: 100%;
-    justify-self: center;
-  }
-
-  .intro-band,
-  .feature-grid,
-  .pricing-grid,
-  .legal-section {
-    grid-template-columns: 1fr;
-  }
-
-  h1 {
-    font-size: 3.6rem;
-  }
-
-  h1 small {
-    font-size: 1.65rem;
-  }
-
-  h2 {
-    font-size: 2.55rem;
-  }
-
-  .price-card h3 {
-    font-size: 3.2rem;
-  }
-}
-
-@media (max-width: 560px) {
-  .site-header {
-    padding: 8px 16px;
-  }
-
-  .brand {
-    font-size: 0.92rem;
-  }
-
-  .brand-logo-frame {
-    width: 48px;
-    height: 38px;
-  }
-
-  .section-pad {
-    padding: 56px 16px;
-  }
-
-  .hero {
-    padding: 28px 16px 46px;
-  }
-
-  h1 {
-    font-size: 2.6rem;
-  }
-
-  h1 small {
-    font-size: 1.24rem;
-    line-height: 1.2;
-  }
-
-  h2 {
-    font-size: 2.1rem;
-  }
-
-  .hero-copy {
-    font-size: 1.05rem;
-  }
-
-  .slogan {
-    font-size: 1rem;
-  }
-
-  .stat {
-    font-size: 2.2rem;
-  }
-
-  .price-card h3 {
-    font-size: 2.55rem;
-  }
-
-  .contact-card a {
-    font-size: 1.16rem;
-  }
-
-  .hero-actions .button {
-    width: 100%;
-  }
-
-  .hero-media {
-    padding: 6px;
-  }
-
-  .hero-media img {
-    max-height: none;
-  }
-
-  .intro-band,
-  .legal-section {
-    margin-right: 16px;
-    margin-left: 16px;
-  }
-
-  .feature-card {
-    min-height: 0;
-  }
-
-  .timeline li {
-    grid-template-columns: 1fr;
-  }
-
-  .form-shell iframe {
-    min-height: 680px;
-  }
-
-  .site-footer {
-    flex-direction: column;
-  }
-}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Cruuz Management builds WhatsApp customer messaging systems for automotive businesses in Jamaica."
+    />
+    <title>Cruuz Management | WhatsApp Automation for Automotive Businesses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Cruuz Management home">
+        <span class="brand-logo-frame">
+          <img
+            class="brand-logo"
+            src="assets/cruuz-logo-symbol.png"
+            alt="Cruuz Management logo"
+            onerror="this.style.display='none'"
+          />
+        </span>
+        <span>Cruuz Management</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Menu</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" data-nav>
+        <a href="#services">Services</a>
+        <a href="#process">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#apply">Apply</a>
+        <a class="nav-cta" href="#apply">Get started</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">WhatsApp automation for auto businesses</p>
+          <h1>
+            <span>AI-Powered WhatsApp Messaging</span>
+            <small>for automotive businesses in Jamaica.</small>
+          </h1>
+          <p class="hero-copy">
+            Cruuz Management helps auto repair shops, mechanics, and service businesses respond to every
+            customer instantly, qualify leads, and book jobs automatically through WhatsApp.
+          </p>
+          <p class="slogan">We build systems that work even when you don’t.</p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-primary" href="#apply">Apply for service</a>
+            <a class="button button-secondary" href="#services">See what you get</a>
+          </div>
+          <div class="trust-strip" aria-label="Key outcomes">
+            <span>No missed messages</span>
+            <span>Clean lead details</span>
+            <span>Fast customer follow-up</span>
+          </div>
+        </div>
+
+        <figure class="hero-media" aria-label="WhatsApp automation workflow preview">
+          <img
+            src="assets/cruuz-whatsapp-automation.png"
+            width="1447"
+            height="1087"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+            alt="Cruuz Management WhatsApp automation preview showing inquiry qualification and lead capture"
+            onerror="this.closest('.hero-media').classList.add('is-missing')"
+          />
+          <figcaption>WhatsApp automation preview unavailable.</figcaption>
+        </figure>
+      </section>
+
+      <section class="intro-band">
+        <div>
+          <span class="stat">24/7</span>
+          <p>Instant responses when customers message after hours.</p>
+        </div>
+        <div>
+          <span class="stat">1 place</span>
+          <p>Customer details, vehicle info, and service requests organized for your team.</p>
+        </div>
+        <div>
+          <span class="stat">WhatsApp</span>
+          <p>Currently focused on automated WhatsApp messaging systems only.</p>
+        </div>
+      </section>
+
+      <section class="section-pad content-section" id="services">
+        <div class="section-heading">
+          <p class="eyebrow">What we do</p>
+          <h2>Automated customer messaging built around your workflow.</h2>
+          <p>
+            Every system is customized to help your business answer faster, collect the right details,
+            and send your team a clear lead without the usual back-and-forth.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="icon">01</span>
+            <h3>Instant WhatsApp response</h3>
+            <p>Automatic replies help customers feel heard immediately, even when your team is busy.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">02</span>
+            <h3>Smart lead qualification</h3>
+            <p>The system asks the right questions about the customer, vehicle, and service request.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">03</span>
+            <h3>Booking request handling</h3>
+            <p>Customers can share preferred dates and times so your team can confirm the job faster.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">04</span>
+            <h3>Real-time notifications</h3>
+            <p>Your team receives clean, structured lead details when a new customer reaches out.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">05</span>
+            <h3>Automatic follow-up</h3>
+            <p>Keep opportunities warm with professional, consistent follow-up messages.</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">06</span>
+            <h3>Ongoing support</h3>
+            <p>Monthly service includes hosting, updates, minor adjustments, and support.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-pad split-section" id="process">
+        <div class="section-heading">
+          <p class="eyebrow">How it works</p>
+          <h2>From first message to organized lead in five steps.</h2>
+        </div>
+        <ol class="timeline">
+          <li>
+            <span>1</span>
+            <div>
+              <h3>A customer sends a WhatsApp message</h3>
+              <p>Your business gets the inquiry without needing someone to manually answer first.</p>
+            </div>
+          </li>
+          <li>
+            <span>2</span>
+            <div>
+              <h3>The system replies immediately</h3>
+              <p>It asks key questions to understand the job and collect useful customer details.</p>
+            </div>
+          </li>
+          <li>
+            <span>3</span>
+            <div>
+              <h3>The request is qualified</h3>
+              <p>Customer name, vehicle information, service needs, and timing are captured.</p>
+            </div>
+          </li>
+          <li>
+            <span>4</span>
+            <div>
+              <h3>Your team gets a clean lead</h3>
+              <p>The details arrive in an organized format so your staff can respond with confidence.</p>
+            </div>
+          </li>
+          <li>
+            <span>5</span>
+            <div>
+              <h3>The customer gets confirmation</h3>
+              <p>Follow-up keeps the customer informed and helps move the job toward booking.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section-pad audience-section">
+        <div class="section-heading">
+          <p class="eyebrow">Who this is for</p>
+          <h2>Built for businesses where fast replies turn into booked jobs.</h2>
+        </div>
+        <div class="audience-list">
+          <span>Auto repair shops</span>
+          <span>Mechanics</span>
+          <span>Tire shops</span>
+          <span>Suspension specialists</span>
+          <span>Brake specialists</span>
+          <span>Car detailing businesses</span>
+        </div>
+      </section>
+
+      <section class="section-pad why-section">
+        <div class="why-card">
+          <p class="eyebrow">Why it matters</p>
+          <h2>Most customers message before they call.</h2>
+          <p>
+            If they do not get a quick response, they often move on. Cruuz Management helps make sure
+            every WhatsApp message is answered, every lead is captured, and every opportunity is followed up.
+          </p>
+        </div>
+        <div class="outcome-grid">
+          <div>
+            <strong>Every message answered</strong>
+            <p>Customers get a professional response right away.</p>
+          </div>
+          <div>
+            <strong>Every lead captured</strong>
+            <p>Your team receives customer, vehicle, and service details.</p>
+          </div>
+          <div>
+            <strong>Every opportunity followed up</strong>
+            <p>The system keeps conversations moving toward the next step.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-pad pricing-section" id="pricing">
+        <div class="section-heading">
+          <p class="eyebrow">Pricing</p>
+          <h2>Custom pricing for your workflow.</h2>
+          <p>
+            Pricing is based on your business needs, messaging volume, and workflow complexity.
+            Apply below to receive a custom setup and monthly service quote.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card">
+            <p class="price-label">Custom setup quote</p>
+            <h3>Built around your business</h3>
+            <p class="quote-detail">Quoted after reviewing your workflow</p>
+            <ul>
+              <li>Workflow design and configuration</li>
+              <li>Custom lead qualification flow</li>
+              <li>WhatsApp platform integration</li>
+              <li>Testing and deployment</li>
+            </ul>
+          </article>
+          <article class="price-card featured">
+            <p class="price-label">Monthly service quote</p>
+            <h3>Scaled to your volume</h3>
+            <p class="quote-detail">Based on support needs and message activity</p>
+            <ul>
+              <li>Hosting and system uptime</li>
+              <li>Maintenance and updates</li>
+              <li>Minor workflow adjustments</li>
+              <li>Ongoing support and monitoring</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="pricing-notes">
+          <span>Messaging/provider costs may be billed separately.</span>
+          <span>Systems are customized to your business workflow.</span>
+          <span>Apply to receive a quote before work begins.</span>
+        </div>
+      </section>
+
+      <section class="section-pad apply-section" id="apply">
+        <div class="section-heading">
+          <p class="eyebrow">Apply for service</p>
+          <h2>Tell us about your business and your WhatsApp workflow.</h2>
+          <p>
+            Complete the application form below so Cruuz Management can understand your business,
+            service requests, and automation needs.
+          </p>
+        </div>
+
+        <div class="form-shell">
+          <iframe
+            title="Cruuz Management service application form"
+            src="https://forms.gle/D4nNGuga93AYpQ8u9"
+            loading="lazy"
+          >
+            Loading application form.
+          </iframe>
+        </div>
+        <a class="button button-primary form-fallback" href="https://forms.gle/D4nNGuga93AYpQ8u9" target="_blank" rel="noreferrer">
+          Open application form
+        </a>
+      </section>
+
+      <section class="section-pad contact-section" id="contact">
+        <div>
+          <p class="eyebrow">Company information</p>
+          <h2>Cruuz Management</h2>
+          <p>Based in Jamaica and serving local and international clients.</p>
+        </div>
+        <div class="contact-card">
+          <span>Email</span>
+          <a href="mailto:info@cruuzmanagement.com">info@cruuzmanagement.com</a>
+          <p>Use the application form for the fastest service request review.</p>
+        </div>
+      </section>
+
+      <section class="legal-section" aria-label="Privacy and terms">
+        <div>
+          <h2>Privacy</h2>
+          <p>
+            Customer and client data is used only to provide service-related communication and system
+            functionality. Cruuz Management does not sell client data or share it with third parties
+            except as required to operate the service.
+          </p>
+        </div>
+        <div>
+          <h2>Terms</h2>
+          <p>
+            By contacting or applying for service, you agree to receive communication regarding your
+            request or service inquiry. Setup work, monthly service, third-party provider costs,
+            cancellation, and support are handled according to the agreed proposal or invoice.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span data-year></span> Cruuz Management. All rights reserved.</p>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
