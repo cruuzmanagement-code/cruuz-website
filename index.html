@@ -14,25 +14,26 @@
       content="WhatsApp booking automation, customer messaging automation, and small business automation in Jamaica."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/cruuz-whatsapp-automation.png" />
+    <meta property="og:image" content="./assets/images/cruuz-whatsapp-automation.png" />
     <meta property="og:site_name" content="Cruuz Management" />
     <title>Cruuz Management | WhatsApp Automation for Small Businesses in Jamaica</title>
 
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="assets/cruuz-logo-symbol.png" />
+    <link rel="icon" href="./assets/images/favicon.svg?v=2" type="image/svg+xml" />
+    <link rel="alternate icon" href="./assets/images/favicon.png?v=2" type="image/png" />
+    <link rel="apple-touch-icon" href="./assets/images/favicon.png?v=2" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="Cruuz Management home">
         <span class="brand-mark">
-          <img src="assets/cruuz-logo-symbol.png" alt="Cruuz Management logo" width="52" height="52" />
+          <img src="./assets/images/cruuz-logo-symbol.png" alt="Cruuz Management logo" width="52" height="52" />
         </span>
         <span class="brand-name">Cruuz Management</span>
       </a>
@@ -363,8 +364,8 @@
         <div class="demo-grid">
           <div class="demo-video-stack reveal" aria-label="Chat agent demo videos">
             <figure class="demo-video-card">
-              <video controls playsinline preload="metadata">
-                <source src="assets/videos/auto-repair-chat-agent-demo.mp4" type="video/mp4" />
+              <video controls playsinline preload="metadata" poster="./assets/images/cruuz-whatsapp-automation.png">
+                <source src="./assets/videos/auto-repair-chat-agent-demo.mp4" type="video/mp4" />
                 Your browser does not support embedded video.
               </video>
               <figcaption>
@@ -373,14 +374,18 @@
               </figcaption>
             </figure>
             <figure class="demo-video-card">
-              <video controls playsinline preload="metadata">
-                <source src="assets/videos/salon-chat-agent-demo.mp4" type="video/mp4" />
-                Your browser does not support embedded video.
-              </video>
+              <div class="external-demo-placeholder" role="img" aria-label="Salon booking chat agent demo video placeholder">
+                <span>Salon booking demo</span>
+                <strong>External video hosting pending</strong>
+                <a class="button button-secondary" href="https://forms.gle/D4nNGuga93AYpQ8u9" target="_blank" rel="noopener noreferrer">
+                  Request the Demo
+                </a>
+              </div>
               <figcaption>
                 <strong>Salon booking chat agent</strong>
                 <span>Collects service type, preferred timing, and booking-ready details.</span>
               </figcaption>
+              <!-- Replace the placeholder above with a hosted YouTube, Vimeo, Cloudinary, or Supabase Storage embed URL when available. -->
             </figure>
           </div>
           <div class="demo-steps reveal">
@@ -413,7 +418,7 @@
               <button class="text-button" type="button" data-refresh-reviews>Refresh</button>
             </div>
             <div class="reviews-list" data-reviews-list aria-live="polite">
-              <p class="reviews-empty">Connect Supabase to show approved public reviews here.</p>
+              <p class="reviews-empty">Approved reviews will appear here shortly.</p>
             </div>
           </div>
 
@@ -585,7 +590,7 @@
       <a href="#top">Back to top</a>
     </footer>
 
-    <script src="supabase-config.js"></script>
-    <script src="script.js"></script>
+    <script src="./supabase-config.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

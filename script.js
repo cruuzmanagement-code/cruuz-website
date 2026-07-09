@@ -19,7 +19,13 @@ const normalizeSupabaseUrl = (value) => {
 
 const supabaseUrl = normalizeSupabaseUrl(supabaseConfig.url);
 const supabaseAnonKey = String(supabaseConfig.anonKey || "").trim();
-const hasSupabaseConfig = Boolean(supabaseUrl && supabaseAnonKey);
+const isPlaceholderValue = (value) => /^PASTE_|_HERE$/i.test(String(value || ""));
+const hasSupabaseConfig = Boolean(
+  supabaseUrl &&
+    supabaseAnonKey &&
+    !isPlaceholderValue(supabaseConfig.url) &&
+    !isPlaceholderValue(supabaseConfig.anonKey),
+);
 
 if (year) {
   year.textContent = new Date().getFullYear();

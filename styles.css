@@ -1310,6 +1310,39 @@ h3 {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
+.external-demo-placeholder {
+  display: grid;
+  min-height: 240px;
+  padding: clamp(20px, 5vw, 34px);
+  place-items: center;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(145, 239, 186, 0.24), transparent 42%),
+    linear-gradient(145deg, #07130f 0%, #123424 100%);
+  border: 1px solid rgba(145, 239, 186, 0.2);
+  border-radius: calc(var(--radius) - 2px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.external-demo-placeholder span {
+  color: #91efba;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.external-demo-placeholder strong {
+  max-width: 320px;
+  color: #ffffff;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  line-height: 1.1;
+}
+
+.external-demo-placeholder .button {
+  margin-top: 8px;
+}
+
 .demo-video-card figcaption {
   display: grid;
   gap: 4px;
