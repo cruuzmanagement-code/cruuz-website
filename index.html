@@ -364,28 +364,34 @@
         <div class="demo-grid">
           <div class="demo-video-stack reveal" aria-label="Chat agent demo videos">
             <figure class="demo-video-card">
-              <video controls playsinline preload="metadata" poster="./assets/images/cruuz-whatsapp-automation.png">
-                <source src="./assets/videos/auto-repair-chat-agent-demo.mp4" type="video/mp4" />
-                Your browser does not support embedded video.
-              </video>
+              <div class="demo-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/jdgNGHwGAz0"
+                  title="Auto Repair Shop Chat Agent Demo Video"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
               <figcaption>
                 <strong>Auto repair chat agent</strong>
                 <span>Captures service needs, vehicle context, timing, and lead details.</span>
               </figcaption>
             </figure>
             <figure class="demo-video-card">
-              <div class="external-demo-placeholder" role="img" aria-label="Salon booking chat agent demo video placeholder">
-                <span>Salon booking demo</span>
-                <strong>External video hosting pending</strong>
-                <a class="button button-secondary" href="https://forms.gle/D4nNGuga93AYpQ8u9" target="_blank" rel="noopener noreferrer">
-                  Request the Demo
-                </a>
+              <div class="demo-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/cn0ocgztJ5U"
+                  title="Salon Chat Agent Demo Video"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
               </div>
               <figcaption>
                 <strong>Salon booking chat agent</strong>
                 <span>Collects service type, preferred timing, and booking-ready details.</span>
               </figcaption>
-              <!-- Replace the placeholder above with a hosted YouTube, Vimeo, Cloudinary, or Supabase Storage embed URL when available. -->
             </figure>
           </div>
           <div class="demo-steps reveal">
@@ -415,10 +421,10 @@
           <div class="reviews-list-shell reveal">
             <div class="reviews-toolbar">
               <h3>Approved reviews</h3>
-              <button class="text-button" type="button" data-refresh-reviews>Refresh</button>
+              <button class="text-button" type="button" data-refresh-reviews hidden>Refresh</button>
             </div>
             <div class="reviews-list" data-reviews-list aria-live="polite">
-              <p class="reviews-empty">Approved reviews will appear here shortly.</p>
+              <p class="reviews-empty">Client reviews will be added here soon.</p>
             </div>
           </div>
 

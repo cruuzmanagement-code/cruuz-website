@@ -26,6 +26,12 @@ const hasSupabaseConfig = Boolean(
     !isPlaceholderValue(supabaseConfig.url) &&
     !isPlaceholderValue(supabaseConfig.anonKey),
 );
+const reviewsFallbackMessage = "Client reviews will be added here soon.";
+
+const setReviewRefreshVisible = (isVisible) => {
+  if (!refreshReviews) return;
+  refreshReviews.hidden = !isVisible;
+};
 
 if (year) {
   year.textContent = new Date().getFullYear();
@@ -116,10 +122,12 @@ const renderReviews = (reviews) => {
   if (!reviewsList) return;
 
   if (!reviews.length) {
-    reviewsList.innerHTML = '<p class="reviews-empty">No approved reviews are published yet. Check back soon or leave a review for approval.</p>';
+    setReviewRefreshVisible(false);
+    reviewsList.innerHTML = `<p class="reviews-empty">${reviewsFallbackMessage}</p>`;
     return;
   }
 
+  setReviewRefreshVisible(true);
   reviewsList.innerHTML = reviews
     .map((review) => {
       const name = escapeHtml(review.customer_name || "Cruuz client");
@@ -147,11 +155,12 @@ const loadReviews = async () => {
   if (!reviewsList) return;
 
   if (!hasSupabaseConfig) {
-    reviewsList.innerHTML =
-      '<p class="reviews-empty">Approved reviews will appear here once the review connection is enabled.</p>';
+    setReviewRefreshVisible(false);
+    reviewsList.innerHTML = `<p class="reviews-empty">${reviewsFallbackMessage}</p>`;
     return;
   }
 
+  setReviewRefreshVisible(false);
   reviewsList.innerHTML = '<p class="reviews-empty reviews-loading">Loading approved reviews...</p>';
 
   try {
@@ -166,8 +175,8 @@ const loadReviews = async () => {
     const reviews = await response.json();
     renderReviews(Array.isArray(reviews) ? reviews : []);
   } catch (error) {
-    reviewsList.innerHTML =
-      '<p class="reviews-empty reviews-error">Approved reviews could not load right now. Please try again shortly.</p>';
+    setReviewRefreshVisible(false);
+    reviewsList.innerHTML = `<p class="reviews-empty">${reviewsFallbackMessage}</p>`;
   }
 };
 
@@ -177,7 +186,7 @@ const submitReview = async (event) => {
   if (!reviewForm) return;
 
   if (!hasSupabaseConfig) {
-    setStatus("Reviews are ready, but Supabase needs to be connected before submissions can be saved.", "error");
+    setStatus(reviewsFallbackMessage);
     return;
   }
 

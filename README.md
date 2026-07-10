@@ -65,4 +65,4 @@ New public submissions are saved as unapproved rows and will not display until a
 
 ## Video Hosting Note
 
-The auto repair demo is embedded locally from `assets/videos/`. The salon demo file is larger than common browser upload limits, so the live page uses a polished placeholder until that video is uploaded to YouTube, Vimeo, Cloudinary, or Supabase Storage.
+The demo section embeds the auto repair and salon demos from YouTube using responsive iframe embeds.
